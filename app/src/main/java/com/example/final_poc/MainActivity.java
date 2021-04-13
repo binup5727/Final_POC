@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         //FirebaseAuth.getInstance().signOut();
-
+        drawer = findViewById(R.id.activity_main);
         mAuth = FirebaseAuth.getInstance();
         requestGoogleSignin();
 
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
             }
-
+            drawer.closeDrawer(GravityCompat.START);
             return true;
 
 
@@ -126,8 +126,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         TextView navuser = (TextView) headerview.findViewById(R.id.Username);
         TextView navemail = (TextView) headerview.findViewById(R.id.email);
 
+        SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+                .edit();
+        editor.putString("Username", "").commit();
+        editor.putString("Useremail", "").commit();
+
         navuser.setText("");
         navemail.setText("");
+
+    }
+    public void onregister(){
 
     }
 
@@ -147,11 +155,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE)
                         .edit();
-                editor.putString("Username", account.getDisplayName());
-                editor.putString("Useremail", account.getEmail());
+                editor.putString("Username", account.getDisplayName()).commit();
+                editor.putString("Useremail", account.getEmail()).commit();
 
                 SharedPreferences preferences = this.getSharedPreferences("MyPrefs", MODE_PRIVATE);
                 String user = preferences.getString("Username", "nope still");
+                String name = preferences.getString("Useremail", "nope still");
 
 
                 NavigationView navigationView = (NavigationView) findViewById(R.id.nv);
@@ -160,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 TextView navemail = (TextView) headerview.findViewById(R.id.email);
 
                 navuser.setText(user);
-                navemail.setText(account.getEmail());
+                navemail.setText(name);
 
 
 
