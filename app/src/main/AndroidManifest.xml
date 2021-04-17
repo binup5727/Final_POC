@@ -11,6 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Final_POC">
+<<<<<<< HEAD
+=======
+        <activity android:name=".login"></activity>
+>>>>>>> 567e7959d1dfdf8f1e8cbffb4bfff9880a92aca2
         <activity android:name=".Register" />
         <activity android:name=".MainActivity">
             <intent-filter>
