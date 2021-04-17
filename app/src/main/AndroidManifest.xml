@@ -11,6 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Final_POC">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        <activity android:name=".login"></activity>
+>>>>>>> 567e7959d1dfdf8f1e8cbffb4bfff9880a92aca2
+>>>>>>> 23bd78077fdf7613f52707854d1d15536ae946f7
+>>>>>>> ed9491132a2dcd4309250d962f6b396418cb2a3c
         <activity android:name=".Register" />
         <activity android:name=".MainActivity">
             <intent-filter>

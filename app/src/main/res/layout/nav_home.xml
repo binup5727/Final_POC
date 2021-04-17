@@ -43,4 +43,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    <Button
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="113dp"
+        android:layout_marginEnd="159dp"
+        android:layout_marginRight="159dp"
+        android:layout_marginBottom="136dp"
+        android:onClick="onregister"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signOut"
+        tools:text="New User" />
+>>>>>>> 567e7959d1dfdf8f1e8cbffb4bfff9880a92aca2
+>>>>>>> 23bd78077fdf7613f52707854d1d15536ae946f7
+>>>>>>> ed9491132a2dcd4309250d962f6b396418cb2a3c
 </androidx.constraintlayout.widget.ConstraintLayout>
