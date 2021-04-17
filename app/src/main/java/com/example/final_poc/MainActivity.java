@@ -135,9 +135,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navemail.setText("");
 
     }
-    public void onregister(){
-
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
