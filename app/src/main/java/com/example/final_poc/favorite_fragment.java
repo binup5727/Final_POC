@@ -53,20 +53,14 @@ public class favorite_fragment extends Fragment {
         getstock2();
 
         System.out.println(stock_list.size() + " list size");
-
-
-
-
-
-
-
         return view;
     }
 
     public void writelist(View view){
 
         System.out.println("stock list below");
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, stock_list);
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1,
+                stock_list);
         list = (ListView)view.findViewById(R.id.stock_list);
         list.setAdapter(itemsAdapter);
         System.out.println("stock list above");
@@ -93,7 +87,17 @@ public class favorite_fragment extends Fragment {
                             stock_list.add("score: " + score);
 
 
+                            JSONArray news_prot = response.getJSONArray("news");
+                            JSONObject news = (JSONObject)news_prot.get(0);
+                            String title = news.getString("title");
+                            String link = news.getString("link");
+
+                            stock_list.add("News: " + title);
+                            stock_list.add("link: " + link);
+
                             System.out.println(usstock.getString("shortname")+"|||||");
+
+
                             getstock3();
                         } catch (JSONException e) {
                             System.out.println("ERROR WITH call");
@@ -133,6 +137,14 @@ public class favorite_fragment extends Fragment {
                             stock_list.add("index: " + index);
                             stock_list.add("score: " + score);
 
+
+                            JSONArray news_prot = response.getJSONArray("news");
+                            JSONObject news = (JSONObject)news_prot.get(0);
+                            String title = news.getString("title");
+                            String link = news.getString("link");
+
+                            stock_list.add("News: " + title);
+                            stock_list.add("link: " + link);
 
 
                             getstock4();
@@ -176,6 +188,14 @@ public class favorite_fragment extends Fragment {
 
                             System.out.println(stock_list);
 
+
+                            JSONArray news_prot = response.getJSONArray("news");
+                            JSONObject news = (JSONObject)news_prot.get(0);
+                            String title = news.getString("title");
+                            String link = news.getString("link");
+
+                            stock_list.add("News: " + title);
+                            stock_list.add("link: " + link);
 
 
                         } catch (JSONException e) {
