@@ -79,6 +79,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
 
+
+
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -92,8 +95,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 case R.id.favorite:
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container
                             , new favorite_fragment()).commit();
-
-                    break;
+                     break;
+                case R.id.search:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container
+                            , new search_fragment()).commit();
 
 
             }
@@ -133,9 +138,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         navuser.setText("");
         navemail.setText("");
-
-    }
-    public void onregister(){
 
     }
 

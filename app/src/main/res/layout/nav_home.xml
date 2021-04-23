@@ -9,8 +9,8 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="108dp"
-        android:layout_height="61dp"
+        android:layout_width="164dp"
+        android:layout_height="79dp"
         android:layout_marginStart="154dp"
         android:layout_marginLeft="154dp"
         android:layout_marginTop="227dp"
@@ -18,7 +18,7 @@
         android:layout_marginRight="164dp"
         android:layout_marginBottom="74dp"
         android:onClick="onSignIn"
-        android:text="Sign In"
+        android:text="Sign In With Google"
         app:layout_constraintBottom_toTopOf="@+id/signOut"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.2"
@@ -27,8 +27,8 @@
 
     <Button
         android:id="@+id/signOut"
-        android:layout_width="100dp"
-        android:layout_height="71dp"
+        android:layout_width="155dp"
+        android:layout_height="62dp"
         android:layout_marginStart="160dp"
         android:layout_marginLeft="160dp"
         android:layout_marginTop="74dp"
@@ -39,25 +39,16 @@
         android:text="Sign Out"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <Button
-        android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginLeft="160dp"
-        android:layout_marginTop="113dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginRight="159dp"
-        android:layout_marginBottom="136dp"
-        android:onClick="onregister"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signOut"
-        tools:text="New User" />
+        android:id="@+id/button2"
+        android:layout_width="158dp"
+        android:layout_height="66dp"
+        android:text="Sign in with Email "
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="103dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

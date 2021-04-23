@@ -50,150 +50,20 @@ public class favorite_fragment extends Fragment {
                 writelist(view);
             }
         }, 5000);
-        getstock2();
+
 
         System.out.println(stock_list.size() + " list size");
-
-
-
-
-
-
-
         return view;
     }
 
     public void writelist(View view){
 
         System.out.println("stock list below");
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, stock_list);
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1,
+                stock_list);
         list = (ListView)view.findViewById(R.id.stock_list);
         list.setAdapter(itemsAdapter);
         System.out.println("stock list above");
     }
-    public void getstock2(){
-        System.out.println("here for second stock");
-        String url = getString(R.string.URL) + "q=tesla";
-        System.out.println(url);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-
-                        try {
-                            JSONArray stock = null;
-                            stock = response.getJSONArray("quotes");
-                            JSONObject usstock = (JSONObject) stock.get(0);
-                            String name = usstock.getString("longname");
-                            String index = usstock.getString("index");
-                            String score = usstock.getString("score");
-
-                            stock_list.add("Name: " + name);
-                            stock_list.add("index: " + index);
-                            stock_list.add("score: " + score);
-
-
-                            System.out.println(usstock.getString("shortname")+"|||||");
-                            getstock3();
-                        } catch (JSONException e) {
-                            System.out.println("ERROR WITH call");
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println("ERROR WITH VOLLEY");
-            }
-        });
-        queue.add(jsonObjectRequest);
-
-
-
-    }
-
-    public void getstock3(){
-        String url = getString(R.string.URL) + "q=walmart";
-        System.out.println(url);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-
-                        try {
-                            JSONArray stock = null;
-                            stock = response.getJSONArray("quotes");
-                            System.out.println(stock+"|||||");
-                            JSONObject usstock = (JSONObject) stock.get(0);
-                            String name = usstock.getString("longname");
-                            String index = usstock.getString("index");
-                            String score = usstock.getString("score");
-
-                            stock_list.add("Name: " + name);
-                            stock_list.add("index: " + index);
-                            stock_list.add("score: " + score);
-
-
-
-                            getstock4();
-                        } catch (JSONException e) {
-                            System.out.println("ERROR WITH call");
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println("ERROR WITH VOLLEY");
-            }
-        });
-        queue.add(jsonObjectRequest);
-
-
-
-    }
-
-    public void getstock4(){
-        String url = getString(R.string.URL) + "q=toyota";
-        System.out.println(url);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-
-                        try {
-                            JSONArray stock = null;
-                            stock = response.getJSONArray("quotes");
-                            System.out.println(stock+"|||||");
-                            JSONObject usstock = (JSONObject) stock.get(0);
-                            String name = usstock.getString("longname");
-                            String index = usstock.getString("index");
-                            String score = usstock.getString("score");
-
-                            stock_list.add("Name: " + name);
-                            stock_list.add("index: " + index);
-                            stock_list.add("score: " + score);
-
-                            System.out.println(stock_list);
-
-
-
-                        } catch (JSONException e) {
-                            System.out.println("ERROR WITH call");
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                System.out.println("ERROR WITH VOLLEY");
-            }
-        });
-        queue.add(jsonObjectRequest);
-
-
-
-    }
-
 
 }
