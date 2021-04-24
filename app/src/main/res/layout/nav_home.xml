@@ -44,6 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -73,4 +74,6 @@
 >>>>>>> 23bd78077fdf7613f52707854d1d15536ae946f7
 >>>>>>> ed9491132a2dcd4309250d962f6b396418cb2a3c
 >>>>>>> 9313f408bff9a11e2e4203d7da1cb4c674421453
+=======
+>>>>>>> final
 </androidx.constraintlayout.widget.ConstraintLayout>

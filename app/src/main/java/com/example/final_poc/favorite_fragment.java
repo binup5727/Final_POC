@@ -69,6 +69,7 @@ public class favorite_fragment extends Fragment {
 
         System.out.println(stock_list.size() + " list size");
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -85,12 +86,15 @@ public class favorite_fragment extends Fragment {
 >>>>>>> 23bd78077fdf7613f52707854d1d15536ae946f7
 >>>>>>> ed9491132a2dcd4309250d962f6b396418cb2a3c
 >>>>>>> 9313f408bff9a11e2e4203d7da1cb4c674421453
+=======
+>>>>>>> final
         return view;
     }
 
     public void writelist(View view){
 
         System.out.println("stock list below");
+<<<<<<< HEAD
 <<<<<<< HEAD
         ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1,
                 stock_list);
@@ -112,6 +116,10 @@ public class favorite_fragment extends Fragment {
 >>>>>>> 23bd78077fdf7613f52707854d1d15536ae946f7
 >>>>>>> ed9491132a2dcd4309250d962f6b396418cb2a3c
 >>>>>>> 9313f408bff9a11e2e4203d7da1cb4c674421453
+=======
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1,
+                stock_list);
+>>>>>>> final
         list = (ListView)view.findViewById(R.id.stock_list);
         list.setAdapter(itemsAdapter);
         System.out.println("stock list above");
@@ -141,12 +149,15 @@ public class favorite_fragment extends Fragment {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 23bd78077fdf7613f52707854d1d15536ae946f7
 >>>>>>> ed9491132a2dcd4309250d962f6b396418cb2a3c
+=======
+>>>>>>> final
                             JSONArray news_prot = response.getJSONArray("news");
                             JSONObject news = (JSONObject)news_prot.get(0);
                             String title = news.getString("title");
@@ -155,6 +166,7 @@ public class favorite_fragment extends Fragment {
                             stock_list.add("News: " + title);
                             stock_list.add("link: " + link);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
                             System.out.println(usstock.getString("shortname")+"|||||");
 
@@ -173,6 +185,11 @@ public class favorite_fragment extends Fragment {
 >>>>>>> 567e7959d1dfdf8f1e8cbffb4bfff9880a92aca2
 >>>>>>> 23bd78077fdf7613f52707854d1d15536ae946f7
 >>>>>>> ed9491132a2dcd4309250d962f6b396418cb2a3c
+=======
+                            System.out.println(usstock.getString("shortname")+"|||||");
+
+
+>>>>>>> final
                             getstock3();
                         } catch (JSONException e) {
                             System.out.println("ERROR WITH call");
@@ -214,12 +231,15 @@ public class favorite_fragment extends Fragment {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 23bd78077fdf7613f52707854d1d15536ae946f7
 >>>>>>> ed9491132a2dcd4309250d962f6b396418cb2a3c
+=======
+>>>>>>> final
                             JSONArray news_prot = response.getJSONArray("news");
                             JSONObject news = (JSONObject)news_prot.get(0);
                             String title = news.getString("title");
@@ -229,6 +249,7 @@ public class favorite_fragment extends Fragment {
                             stock_list.add("link: " + link);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -236,6 +257,8 @@ public class favorite_fragment extends Fragment {
 >>>>>>> 567e7959d1dfdf8f1e8cbffb4bfff9880a92aca2
 >>>>>>> 23bd78077fdf7613f52707854d1d15536ae946f7
 >>>>>>> ed9491132a2dcd4309250d962f6b396418cb2a3c
+=======
+>>>>>>> final
 
                             getstock4();
                         } catch (JSONException e) {
@@ -280,12 +303,15 @@ public class favorite_fragment extends Fragment {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 23bd78077fdf7613f52707854d1d15536ae946f7
 >>>>>>> ed9491132a2dcd4309250d962f6b396418cb2a3c
+=======
+>>>>>>> final
                             JSONArray news_prot = response.getJSONArray("news");
                             JSONObject news = (JSONObject)news_prot.get(0);
                             String title = news.getString("title");
@@ -295,6 +321,7 @@ public class favorite_fragment extends Fragment {
                             stock_list.add("link: " + link);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -302,6 +329,8 @@ public class favorite_fragment extends Fragment {
 >>>>>>> 567e7959d1dfdf8f1e8cbffb4bfff9880a92aca2
 >>>>>>> 23bd78077fdf7613f52707854d1d15536ae946f7
 >>>>>>> ed9491132a2dcd4309250d962f6b396418cb2a3c
+=======
+>>>>>>> final
 
                         } catch (JSONException e) {
                             System.out.println("ERROR WITH call");

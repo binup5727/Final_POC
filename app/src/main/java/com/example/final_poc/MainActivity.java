@@ -184,6 +184,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -225,6 +226,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 >>>>>>> 23bd78077fdf7613f52707854d1d15536ae946f7
 >>>>>>> 9313f408bff9a11e2e4203d7da1cb4c674421453
+=======
+>>>>>>> final
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
