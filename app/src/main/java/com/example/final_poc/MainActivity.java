@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         nv = (NavigationView)findViewById(R.id.nv);
         nv.setNavigationItemSelectedListener(this);
 
+<<<<<<< HEAD
 
     }
 
@@ -101,10 +102,43 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 case R.id.favorite:
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container
                             , new favorite_fragment()).commit();
+<<<<<<< HEAD
                      break;
                 case R.id.search:
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container
                             , new search_fragment()).commit();
+=======
+
+=======
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(t.onOptionsItemSelected(item))
+            return true;
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        switch(item.getItemId())
+            {
+                case R.id.home:
+                    System.out.println("home");
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container
+                    , new home_fragment()).commit();
+                    break;
+                case R.id.favorite:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container
+                            , new favorite_fragment()).commit();
+
+>>>>>>> 567e7959d1dfdf8f1e8cbffb4bfff9880a92aca2
+                    break;
+>>>>>>> 9313f408bff9a11e2e4203d7da1cb4c674421453
 
 
             }
@@ -113,6 +147,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     }
+<<<<<<< HEAD
+=======
 
 
     private void requestGoogleSignin(){
@@ -141,11 +177,54 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .edit();
         editor.putString("Username", "").commit();
         editor.putString("Useremail", "").commit();
+>>>>>>> 567e7959d1dfdf8f1e8cbffb4bfff9880a92aca2
 
         navuser.setText("");
         navemail.setText("");
 
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    public void onregister(){
+
+    private void requestGoogleSignin(){
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+    }
+>>>>>>> ed9491132a2dcd4309250d962f6b396418cb2a3c
+
+    public void onSignIn(View V){
+        System.out.println("sign in called");
+        Intent signinIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(signinIntent, RC_SIGN_IN);
+
+    }
+    public void signOut(View v){
+        FirebaseAuth.getInstance().signOut();
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nv);
+        View headerview = navigationView.getHeaderView(0);
+        TextView navuser = (TextView) headerview.findViewById(R.id.Username);
+        TextView navemail = (TextView) headerview.findViewById(R.id.email);
+
+        SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+                .edit();
+        editor.putString("Username", "").commit();
+        editor.putString("Useremail", "").commit();
+
+        navuser.setText("");
+        navemail.setText("");
+
+    }
+>>>>>>> 23bd78077fdf7613f52707854d1d15536ae946f7
+>>>>>>> 9313f408bff9a11e2e4203d7da1cb4c674421453
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -209,6 +288,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
         }
+<<<<<<< HEAD
+=======
+    }
+
+    private void firebaseAuthWithGoogle(String idToken) {
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+
+
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(MainActivity.this, "Authorization fail", Toast.LENGTH_LONG).show();
+
+                        }
+                    }
+                });
+>>>>>>> 567e7959d1dfdf8f1e8cbffb4bfff9880a92aca2
     }
 
     private void firebaseAuthWithGoogle(String idToken) {
@@ -235,3 +337,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 }
 
 
+<<<<<<< HEAD
+=======
+}
+
+
+>>>>>>> 567e7959d1dfdf8f1e8cbffb4bfff9880a92aca2
