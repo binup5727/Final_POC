@@ -25,11 +25,14 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+
+import java.sql.SQLOutput;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -46,6 +49,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
 
         //FirebaseAuth.getInstance().signOut();
         drawer = findViewById(R.id.activity_main);
@@ -155,14 +161,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 firebaseAuthWithGoogle(account.getIdToken());
 
-                SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE)
-                        .edit();
-                editor.putString("Username", account.getDisplayName()).commit();
-                editor.putString("Useremail", account.getEmail()).commit();
+                //SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+                ///        .edit();
+                //editor.putString("Username", account.getDisplayName()).commit();
+                //editor.putString("Useremail", account.getEmail()).commit();
 
-                SharedPreferences preferences = this.getSharedPreferences("MyPrefs", MODE_PRIVATE);
-                String user = preferences.getString("Username", "nope still");
-                String name = preferences.getString("Useremail", "nope still");
+
+
+                //SharedPreferences preferences = this.getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                //String user = preferences.getString("Username", "nope still");
+                //String name = preferences.getString("Useremail", "nope still");
+
+                User userAccount = new User(-1, account.getDisplayName(), account.getEmail(), "");
+
+                DBHelper dbHelper = new DBHelper(MainActivity.this);
+                if(dbHelper.check(account.getDisplayName())) {
+                    dbHelper.addUser(userAccount);
+                    System.out.println("there is no user in database");
+                }else {
+                    System.out.println("there is a user in database");
+                }
 
 
                 NavigationView navigationView = (NavigationView) findViewById(R.id.nv);
@@ -170,8 +188,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 TextView navuser = (TextView) headerview.findViewById(R.id.Username);
                 TextView navemail = (TextView) headerview.findViewById(R.id.email);
 
-                navuser.setText(user);
-                navemail.setText(name);
+
+                User user = dbHelper.getfav(account.getDisplayName());
+                String name = user.getName();
+                String email = user.getEmail();
+                navuser.setText(name);
+                navemail.setText(email);
+
+
+
 
 
 

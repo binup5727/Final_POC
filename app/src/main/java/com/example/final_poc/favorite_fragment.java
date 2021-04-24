@@ -22,6 +22,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,15 +43,16 @@ public class favorite_fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.nav_favorite, container, false);
 
-
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            System.out.println("user signed in");
+            // User is signed in
+        } else {
+            System.out.println("user signed out");
+            // No user is signed in
+        }
         queue = Volley.newRequestQueue(getContext());
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                writelist(view);
-            }
-        }, 5000);
+
 
 
         System.out.println(stock_list.size() + " list size");

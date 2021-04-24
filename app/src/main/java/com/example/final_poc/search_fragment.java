@@ -1,13 +1,16 @@
 package com.example.final_poc;
 
+import android.os.Handler;
 import android.text.Editable;
 import android.view.View;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,18 +30,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.zip.Inflater;
 
 public class search_fragment extends Fragment {
 
     EditText input;
-    Button search_btn;
+    Button search_btn, addfav, removefav;
     private RequestQueue queue;
+    ArrayList<String> stock_data = new ArrayList<String>();
+    private ListView list;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = (View) inflater.inflate(R.layout.nav_search, container, false);
+
 
         queue = Volley.newRequestQueue(getContext());
         search_btn = view.findViewById(R.id.searchbtn);
@@ -48,9 +55,27 @@ public class search_fragment extends Fragment {
             public void onClick(View v) {
                 String stock = String.valueOf(input.getText());
                 System.out.println(stock);
-                getstock(stock);
+                getstock(stock, view);
 
 
+
+
+
+
+            }
+        });
+
+        addfav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        removefav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stock_data.get(0);
             }
         });
 
@@ -61,7 +86,18 @@ public class search_fragment extends Fragment {
     }
 
 
-    public void getstock(String stock){
+    public void writelist(View view){
+
+        System.out.println("stock list below");
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1,
+                stock_data);
+        list = (ListView)view.findViewById(R.id.results);
+        list.setAdapter(itemsAdapter);
+        System.out.println("stock list above");
+    }
+
+
+    public void getstock(String stock, View view){
 
         String url = getString(R.string.URL) + "q=" + stock;
         System.out.println(url);
@@ -84,12 +120,19 @@ public class search_fragment extends Fragment {
                             JSONObject news = (JSONObject)news_prot.get(0);
                             String title = news.getString("title");
                             String link = news.getString("link");
+                            stock_data.clear();
+                            stock_data.add("Name: " + name);
+                            stock_data.add("index:" + index);
+                            stock_data.add("Score: " + score);
+                            stock_data.add("News");
+                            stock_data.add("Title: " + title + "\n" + "Link: " + link);
 
 
-
+                            writelist(view);
 
                             System.out.println(name + "|"
                             + index + "|" + score + "|" + title + "|" + link + "|");
+
 
 
 
